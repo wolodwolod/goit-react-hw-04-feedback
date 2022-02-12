@@ -6,7 +6,7 @@ class App extends Component {
         neutral: 0,
         bad: 0
     }
-    
+
     OnGoodBtn = () => {
 
         console.log("OnGood")
@@ -27,11 +27,28 @@ class App extends Component {
       bad: prevState.bad + 1
     }));
   };
-   
+   TotalCounter = () => {
+    const { good, neutral, bad } = this.state;
+    return good + neutral + bad;
+    };
+    
+    PositiveCounter = () => {
+        const { good } = this.state;
+        const total = this.TotalCounter();
+        const countNumber = Math.round((good * 100) / total);
+        // console.log(total);
+        // console.log(countNumber);
+        return countNumber ? countNumber : 0;
+        // if (countNumber) { return countNumber } 
+        // return 0;
+        
+  };
 
     render() {
         const { good, neutral, bad } = this.state;
-
+        const total = this.TotalCounter();
+        const positive = this.PositiveCounter();
+      
 
         return (
             <>
@@ -40,9 +57,9 @@ class App extends Component {
                     <h1>Please leave feedback</h1>
 
                     <div className='BtnSet'>
-                        <button className='BtnSetBtn' onClick={() => this.OnGoodBtn()}>Good</button>
-                        <button className='BtnSetBtn' onClick={() => this.OnNeutralBtn()}>Neutral</button>
-                        <button className='BtnSetBtn' onClick={() => this.OnBadBtn()}>Bad</button>
+                        <button className='BtnSetButton' onClick={() => this.OnGoodBtn()}>Good</button>
+                        <button className='BtnSetButton' onClick={() => this.OnNeutralBtn()}>Neutral</button>
+                        <button className='BtnSetButton' onClick={() => this.OnBadBtn()}>Bad</button>
                     </div>
                 </section>
 
@@ -52,6 +69,8 @@ class App extends Component {
                     <p className='StatisticText'>Good: {good}</p>
                     <p className='StatisticText'>Neutral: {neutral}</p>
                     <p className='StatisticText'>Bad: {bad}</p>
+                    <p className='StatisticText'>Total: {total}</p>
+                    <p className='StatisticText'>Positive feedback: {positive}%</p>
                 </section>
             
                         </>
