@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import FeedbackOptions from 'components/FeedbackOptions'
 import Statistics from 'components/Statistics'
 import Section from 'components/Section'
+import Notification from 'components/Notification'
 
 class App extends Component {
     state = {
@@ -49,7 +50,7 @@ class App extends Component {
         const countNumber = Math.round((good * 100) / total);
         // console.log(total);
         // console.log(countNumber);
-        return countNumber ? countNumber : 0;
+        return total > 0 ? countNumber : 0;
         // if (countNumber) { return countNumber } 
         // return 0;
         
@@ -70,7 +71,11 @@ class App extends Component {
                 </Section>
 
                 <Section className='StatisticSection' title='Statistics'>
-                    <Statistics good={good} neutral={neutral} bad={bad} total={total} positivePercentage={positivePercentage} />
+
+                    {total > 0 ?
+
+                        (<Statistics good={good} neutral={neutral} bad={bad} total={total} positivePercentage={positivePercentage} />
+                        ) : (<Notification message="There is no feedback" />)}
                 </Section>
                 
                 

@@ -7,8 +7,7 @@ const Statistics = ({
   total,
   positivePercentage,
 }) => (
-     <section className='StatisticSection'>
-        <h1>Statistics</h1>
+    
     <ul>
       <li>Good: {good}</li>
       <li>Neutral: {neutral}</li>
@@ -16,7 +15,7 @@ const Statistics = ({
       <li>Total: {total}</li>
       <li>Positive feedback: {positivePercentage}%</li>
     </ul>
-  </section>
+  
 );
 
 Statistics.propTypes = {
