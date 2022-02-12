@@ -86,6 +86,8 @@ class App extends Component {
 }
 
 export default App;
+
+
     //  <div className='BtnSet'>
     //                     <button className='BtnSetButton' onClick={() => this.OnGoodBtn()}>Good</button>
     //                     <button className='BtnSetButton' onClick={() => this.OnNeutralBtn()}>Neutral</button>

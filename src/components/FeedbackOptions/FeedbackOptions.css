@@ -1,0 +1,17 @@
+.BtnSet__button {
+  padding: 5px 15px;
+  border-radius: 4px;
+  text-transform: capitalize;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.BtnSet__button:hover,
+.BtnSet__button:focus {
+  background-color: yellow;
+  transition: all 0.3s;
+}
+
+.BtnSet__button:not(:last-child) {
+  margin-right: 15px;
+}

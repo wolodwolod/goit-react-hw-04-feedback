@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-// import { Container } from './Section.styled.jsx';
+import './Section.css'
 
 const Section = ({ title, children }) => (
-  <section>
+  <section className='Section'>
     <h1>{title}</h1>
     <>{children}</>
   </section>

@@ -1,0 +1,10 @@
+li {
+  padding: 10px;
+  font-weight: 700;
+  width: 220px;
+  display: flex;
+  justify-content: space-between;
+}
+span {
+  color: red;
+}
