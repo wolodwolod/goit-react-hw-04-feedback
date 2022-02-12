@@ -47,7 +47,7 @@ class App extends Component {
                 </section>
 
                 <section className='StatisticSection'>
-                    <h1>Please leave feedback</h1>
+                    <h1>Statistics</h1>
 
                     <p className='StatisticText'>Good: {good}</p>
                     <p className='StatisticText'>Neutral: {neutral}</p>
