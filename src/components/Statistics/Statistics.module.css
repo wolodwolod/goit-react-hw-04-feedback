@@ -1,10 +1,10 @@
-li {
+.StatsItem {
   padding: 10px;
   font-weight: 700;
   width: 220px;
   display: flex;
   justify-content: space-between;
 }
-span {
+.StatsItem__value {
   color: red;
 }
