@@ -12,27 +12,7 @@ class App extends Component {
         bad: 0
     }
 
-//     OnGoodBtn = () => {
 
-//         console.log("OnGood")
-        
-//     this.setState (prevState => ({
-//       good: prevState.good + 1
-//     }));
-//     };
-    
-//     OnNeutralBtn = () => {
-//        this.setState (prevState => ({
-//       neutral: prevState.neutral + 1
-//     }));
-//     };
-    
-//     OnBadBtn = () => {
-//         this.setState (prevState => ({
-//       bad: prevState.bad + 1
-//     }));
-//   };
-    
     onLeaveFeedback = feedback => {
     this.setState(prevState => ({
       [feedback]: prevState[feedback] + 1,
@@ -48,12 +28,9 @@ class App extends Component {
         const { good } = this.state;
         const total = this.TotalCounter();
         const countNumber = Math.round((good * 100) / total);
-        // console.log(total);
-        // console.log(countNumber);
-        return total > 0 ? countNumber : 0;
-        // if (countNumber) { return countNumber } 
-        // return 0;
         
+        return total > 0 ? countNumber : 0;
+                
   };
 
     render() {
@@ -88,19 +65,4 @@ class App extends Component {
 export default App;
 
 
-    //  <div className='BtnSet'>
-    //                     <button className='BtnSetButton' onClick={() => this.OnGoodBtn()}>Good</button>
-    //                     <button className='BtnSetButton' onClick={() => this.OnNeutralBtn()}>Neutral</button>
-    //                     <button className='BtnSetButton' onClick={() => this.OnBadBtn()}>Bad</button>
-    //                 </div>
-// section className='StatisticSection'>
-//                     <h1>Statistics</h1>
-
-//                     <p className='StatisticText'>Good: {good}</p>
-//                     <p className='StatisticText'>Neutral: {neutral}</p>
-//                     <p className='StatisticText'>Bad: {bad}</p>
-//                     <p className='StatisticText'>Total: {total}</p>
-//                     <p className='StatisticText'>Positive feedback: {positive}%</p>
-//                 </section>
-
-
+    
