@@ -13,7 +13,7 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => (
 
 FeedbackOptions.propTypes = {
   options: PropTypes.arrayOf(
-          PropTypes.number
+          PropTypes.string
       )
   .isRequired,
   onLeaveFeedback: PropTypes.func.isRequired,
