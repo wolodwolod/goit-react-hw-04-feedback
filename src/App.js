@@ -5,42 +5,60 @@ import Statistics from 'components/Statistics'
 import Section from 'components/Section'
 import Notification from 'components/Notification'
 
-function App () {
-    
-    const feedbacks = ['good', 'neutral', 'bad'];
-    
-    const [good, setGood] = useState(0);
-  const [neutral, setNeutral] = useState(0);
-    const [bad, setBad] = useState(0);      
+const feedbacks = ['good', 'neutral', 'bad'];
 
-    
-    const onLeaveFeedback = feedback => {
+
+function App() {
+
+    const [feedback, setFeedback] = useState({
+    good: 0,
+    neutral: 0,
+    bad: 0
+    })    
+        
+  const onLeaveFeedback = feedback => {
     switch (feedback) {
       case 'good':
-        setGood(good + 1);
+        setFeedback(prev => {
+          return {
+            ...prev,
+            good: prev.good + 1,
+          }
+        })
         break;
 
       case 'neutral':
-        setNeutral(neutral + 1);
+        setFeedback(prev => {
+          return {
+            ...prev,
+            neutral: prev.neutral + 1,
+          }
+        })
         break;
 
       case 'bad':
-        setBad(bad + 1);
+        setFeedback(prev => {
+          return {
+            ...prev,
+            bad: prev.bad + 1
+          }
+        })
         break;
 
       default:
         break;
     }
-    };
+  }
+    ;
     
    const countTotal = () => {
-   return good + neutral + bad;
+   return feedback.good + feedback.neutral + feedback.bad;
     };
     
     const countPositiveRate = () => {
         
         return countTotal() > 0 ?
-            Math.round((good * 100) / countTotal())
+            Math.round((feedback.good * 100) / countTotal())
             : 0;             
   };       
 
@@ -56,9 +74,9 @@ function App () {
 
                     {countTotal() > 0 ?
 
-                        (<Statistics good={good}
-                            neutral={neutral}
-                            bad={bad}
+                        (<Statistics good={feedback.good}
+                            neutral={feedback.neutral}
+                            bad={feedback.bad}
                             total={countTotal()}
                             positiveRate={countPositiveRate()} />
                         ) : (<Notification message="There is no feedback" />)}
