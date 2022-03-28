@@ -15,41 +15,54 @@ function App() {
     neutral: 0,
     bad: 0
     })    
-        
+      
   const onLeaveFeedback = feedback => {
-    switch (feedback) {
-      case 'good':
-        setFeedback(prev => {
-          return {
-            ...prev,
-            good: prev.good + 1,
-          }
-        })
-        break;
+   
+    setFeedback(prev => {
 
-      case 'neutral':
-        setFeedback(prev => {
-          return {
-            ...prev,
-            neutral: prev.neutral + 1,
-          }
-        })
-        break;
-
-      case 'bad':
-        setFeedback(prev => {
-          return {
-            ...prev,
-            bad: prev.bad + 1
-          }
-        })
-        break;
-
-      default:
-        break;
-    }
+      return {
+        ...prev,
+        [feedback]: prev[feedback] + 1,
+      }
+            })
   }
-    ;
+
+
+  
+  // const onLeaveFeedback = feedback => {
+  //   switch (feedback) {
+  //     case 'good':
+  //       setFeedback(prev => {
+  //         return {
+  //           ...prev,
+  //           good: prev.good + 1,
+  //         }
+  //       })
+  //       break;
+
+  //     case 'neutral':
+  //       setFeedback(prev => {
+  //         return {
+  //           ...prev,
+  //           neutral: prev.neutral + 1,
+  //         }
+  //       })
+  //       break;
+
+  //     case 'bad':
+  //       setFeedback(prev => {
+  //         return {
+  //           ...prev,
+  //           bad: prev.bad + 1
+  //         }
+  //       })
+  //       break;
+
+  //     default:
+  //       break;
+  //   }
+  // }
+  //   ;
     
    const countTotal = () => {
    return feedback.good + feedback.neutral + feedback.bad;
