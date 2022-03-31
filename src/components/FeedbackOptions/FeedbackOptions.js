@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
 import s from './FeedbackOptions.module.css';
+import { memo } from 'react';
 
-const FeedbackOptions = ({ options, onLeaveFeedback }) => (
+const FeedbackOptions = ({ options, onLeaveFeedback }) => {
+  console.log('render FeedbackOptions');
+return (
   <div className={s.BtnSet}>
     {options.map(option => (
       <button type="button" className={s.BtnSet__button} key={option} onClick={() => onLeaveFeedback(option)}>
@@ -9,7 +12,7 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => (
       </button>
     ))}
   </div>
-);
+)};
 
 FeedbackOptions.propTypes = {
   options: PropTypes.arrayOf(
@@ -19,4 +22,4 @@ FeedbackOptions.propTypes = {
   onLeaveFeedback: PropTypes.func.isRequired,
 };
 
-export default FeedbackOptions;
+export default memo(FeedbackOptions);

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 
 import FeedbackOptions from 'components/FeedbackOptions'
 import Statistics from 'components/Statistics'
@@ -16,16 +16,16 @@ function App() {
     bad: 0
     })    
       
-  const onLeaveFeedback = feedback => {
+    const onLeaveFeedback = useCallback((feedback) => {
    
-    setFeedback(prev => {
+        setFeedback(prev => {
 
-      return {
-        ...prev,
-        [feedback]: prev[feedback] + 1,
-      }
-            })
-  }
+            return {
+                ...prev,
+                [feedback]: prev[feedback] + 1,
+            }
+        })
+    }, []);
 
 
   
@@ -64,7 +64,8 @@ function App() {
   // }
   //   ;
     
-   const countTotal = () => {
+    const countTotal = () => {
+       
    return feedback.good + feedback.neutral + feedback.bad;
     };
     
